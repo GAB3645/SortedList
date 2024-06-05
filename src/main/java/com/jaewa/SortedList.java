@@ -23,6 +23,9 @@ public class SortedList {
 	}
 
 	public void add(int x) {
+		if(contains(x)){
+			return; //ntd
+		}
 		if (firstNode == null) {
 			Node tmp = new Node();
 			tmp.setValue(x);
@@ -57,6 +60,17 @@ public class SortedList {
 		}
 
 		return result;
+	}
+
+	private boolean contains(int x) {
+		Node current = firstNode;
+		while (current != null) {
+			if (current.getValue() == x) {
+				return true;
+			}
+			current = current.getNext();
+		}
+		return false;
 	}
 
 }

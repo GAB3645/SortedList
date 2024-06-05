@@ -2,9 +2,6 @@ package com.jaewa;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
-
-	
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -64,6 +61,17 @@ class SortedListTest {
 		assertEquals(1, result[0]);
 		assertEquals(3, result[1]);
 
+	}
+
+	@Test
+	void testDoubleNumber(){
+		list.add(3);
+		list.add(1);
+		list.add(3);
+
+		int[] result = list.getValues();
+		assertEquals(2, result.length);
+		
 	}
 
 	@Test
