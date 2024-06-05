@@ -71,7 +71,6 @@ class SortedListTest {
 
 		int[] result = list.getValues();
 		assertEquals(2, result.length);
-		
 	}
 
 	@Test

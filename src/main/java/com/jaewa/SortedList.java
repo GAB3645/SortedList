@@ -23,32 +23,60 @@ public class SortedList {
 	}
 
 	public void add(int x) {
-		if(contains(x)){
-			return; //ntd
-		}
+		if(contains(x)) return; //! controllo numero gia presente
+
 		if (firstNode == null) {
 			Node tmp = new Node();
 			tmp.setValue(x);
 			firstNode = tmp;
 			return;
 		}
-
-		if (x > firstNode.getValue()) {
-			Node newNode = new Node();
-			newNode.setValue(x);
-			newNode.setNext(null);
-			firstNode.setNext(newNode);
-			return;
+	
+		Node prev = null;
+		Node cur = firstNode;
+		
+		while (cur != null && x > cur.getValue()) {
+			prev = cur;
+			cur = cur.getNext();
 		}
-
-		if (x < firstNode.getValue()) {
-			Node newNode = new Node();
-			newNode.setValue(x);
+	
+		Node newNode = new Node();
+		newNode.setValue(x);
+	
+		if (prev == null) {
 			newNode.setNext(firstNode);
 			firstNode = newNode;
+		} else {
+			newNode.setNext(prev.getNext());
+			prev.setNext(newNode);
+		}
+	}
+
+	public void add2(int x) {
+		if (firstNode == null) {
+			Node tmp = new Node();
+			tmp.setValue(x);
+			firstNode = tmp;
 			return;
 		}
-
+	
+		Node prev = null;
+		Node cur = firstNode;
+		while (cur != null && x > cur.getValue()) {
+			prev = cur;
+			cur = cur.getNext();
+		}
+	
+		Node newNode = new Node();
+		newNode.setValue(x);
+	
+		if (prev == null) {
+			newNode.setNext(firstNode);
+			firstNode = newNode;
+		} else {
+			newNode.setNext(prev.getNext());
+			prev.setNext(newNode);
+		}
 	}
 
 	public int size() {
