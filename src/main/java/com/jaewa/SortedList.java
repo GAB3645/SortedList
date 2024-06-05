@@ -59,34 +59,4 @@ public class SortedList {
 		return result;
 	}
 
-	// List<Node> lista;
-	//
-	// public SortedList() {
-	// this.lista = new ArrayList<Node>();
-	// }
-	//
-	// public List<Node> getValues() {
-	// return Collections.unmodifiableList(lista);
-	// }
-	//
-	// public void addNode(Node node) {
-	//
-	// if (node == null ) {
-	// return;
-	// }
-	//
-	// lista.add(node);
-	//
-	//
-	// }
-	//
-	// public void removeNode(Node node) {
-	//
-	// if (!lista.contains(node) && node != null) {
-	// return;
-	// } else {
-	// lista.remove(node);
-	// }
-	// }
-
 }
