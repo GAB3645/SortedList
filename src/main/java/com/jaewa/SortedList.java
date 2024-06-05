@@ -34,34 +34,7 @@ public class SortedList {
 	
 		Node prev = null;
 		Node cur = firstNode;
-		
-		while (cur != null && x > cur.getValue()) {
-			prev = cur;
-			cur = cur.getNext();
-		}
-	
-		Node newNode = new Node();
-		newNode.setValue(x);
-	
-		if (prev == null) {
-			newNode.setNext(firstNode);
-			firstNode = newNode;
-		} else {
-			newNode.setNext(prev.getNext());
-			prev.setNext(newNode);
-		}
-	}
 
-	public void add2(int x) {
-		if (firstNode == null) {
-			Node tmp = new Node();
-			tmp.setValue(x);
-			firstNode = tmp;
-			return;
-		}
-	
-		Node prev = null;
-		Node cur = firstNode;
 		while (cur != null && x > cur.getValue()) {
 			prev = cur;
 			cur = cur.getNext();
@@ -99,6 +72,25 @@ public class SortedList {
 			current = current.getNext();
 		}
 		return false;
+	}
+
+	public void remove(int x) {
+		Node current = firstNode;	
+		Node previous = null;
+
+		while (current != null) {
+			if (current.getValue() == x) {
+				if (previous == null) {
+					firstNode = current.getNext();
+				} else {
+					previous.setNext(current.getNext());
+				}
+				return;
+			}
+			
+			previous = current;
+			current = current.getNext();
+		}
 	}
 
 }
